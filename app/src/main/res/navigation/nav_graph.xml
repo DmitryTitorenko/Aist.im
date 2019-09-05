@@ -7,5 +7,9 @@
     <fragment
         android:id="@+id/itemFragment"
         android:name="com.example.aistim.data.view.category.CategoryFragment"
-        android:label="ItemFragment" />
+        android:label="ItemFragment" >
+        <action
+            android:id="@+id/action_itemFragment_self"
+            app:destination="@id/itemFragment" />
+    </fragment>
 </navigation>

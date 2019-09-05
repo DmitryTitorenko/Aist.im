@@ -10,8 +10,13 @@ import javax.inject.Inject
 class CategoryPresenter @Inject constructor(private val itemsRepo: ItemsRepo) :
     BasePresenter<ICategoryView>() {
 
-    fun getItems() = launch {
-        val response = itemsRepo.loadCategories()
-        viewState.handleItems(response)
+    fun getCategories(categoryCode: Int) = launch {
+        if (categoryCode == 0) {
+            val response = itemsRepo.loadCategories()
+            viewState.handleCategories(response)
+        } else {
+            val response = itemsRepo.loadCategoriesListById(categoryCode)
+            viewState.handleCategoriesByCode(response)
+        }
     }
 }
