@@ -22,15 +22,3 @@ data class Data(
     @field:SerializedName("has_sub_categories")
     val hasSubCategories: Boolean? = null
 )
-
-data class SubCategoriesItem(
-
-    @field:SerializedName("name")
-    val name: String? = null,
-
-    @field:SerializedName("id")
-    val id: Int? = null,
-
-    @field:SerializedName("has_sub_categories")
-    val hasSubCategories: Boolean? = null
-)

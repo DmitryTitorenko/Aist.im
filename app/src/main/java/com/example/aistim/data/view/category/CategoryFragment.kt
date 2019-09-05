@@ -35,7 +35,6 @@ class CategoryFragment : BaseFragment(), ICategoryView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.getInt("categoryCode")?.let {
             isMainCategory = false
             categoryCode = it
@@ -83,11 +82,19 @@ class CategoryFragment : BaseFragment(), ICategoryView {
     }
 
     private fun startSelectedCategory(category: DataItem) {
-        val bundle = bundleOf()
-        category.id?.let { categoryCode ->
-            bundle.putInt("categoryCode", categoryCode)
+        category.hasSubCategories?.let {
+            val bundle = bundleOf()
+            category.id?.let { categoryCode ->
+                bundle.putInt("categoryCode", categoryCode)
+            }
+            if (it) {
+                view?.findNavController()
+                    ?.navigate(R.id.action_itemFragment_self, bundle)
+            } else {
+                view?.findNavController()
+                    ?.navigate(R.id.action_itemFragment_to_productFragment, bundle)
+            }
         }
-        view?.findNavController()?.navigate(R.id.action_itemFragment_self, bundle)
     }
 
     private fun setBtnBack() {
