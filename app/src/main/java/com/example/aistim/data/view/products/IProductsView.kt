@@ -1,12 +1,12 @@
-package com.example.aistim.data.view.product
+package com.example.aistim.data.view.products
 
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.example.aistim.data.model.Product
+import com.example.aistim.data.model.Products
 import com.example.aistim.data.view.base.BaseView
 
-interface IProductView : BaseView {
+interface IProductsView : BaseView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
-    fun handleProduct(product: Product)
+    fun handleProducts(products: Products)
 }

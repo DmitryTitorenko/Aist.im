@@ -1,4 +1,4 @@
-package com.example.aistim.data.view.product
+package com.example.aistim.data.view.products
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -12,10 +12,10 @@ import com.example.aistim.R
 import com.example.aistim.data.model.DataItem1
 import kotlinx.android.synthetic.main.product.view.*
 
-class ProductAdapter(
+class ProductsAdapter(
     private val categoryList: List<DataItem1?>,
     private val context: Context
-) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     var onItemClick: ((DataItem1) -> Unit)? = null
 
@@ -54,7 +54,6 @@ class ProductAdapter(
     private fun loadImage(uri: String, ivProduct: ImageView) {
         Glide.with(context)
             .load(uri)
-            //.apply(bitmapTransform(getRoundedBottomCorners()))
             .into(ivProduct)
     }
 }

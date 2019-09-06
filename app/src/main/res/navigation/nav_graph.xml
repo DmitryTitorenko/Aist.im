@@ -17,6 +17,14 @@
     </fragment>
     <fragment
         android:id="@+id/productFragment"
+        android:name="com.example.aistim.data.view.products.ProductsFragment"
+        android:label="ProductFragment" >
+        <action
+            android:id="@+id/action_productFragment_to_productSelected"
+            app:destination="@id/productSelected" />
+    </fragment>
+    <fragment
+        android:id="@+id/productSelected"
         android:name="com.example.aistim.data.view.product.ProductFragment"
         android:label="ProductFragment" />
 </navigation>

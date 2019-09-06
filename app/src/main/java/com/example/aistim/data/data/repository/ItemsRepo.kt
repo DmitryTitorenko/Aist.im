@@ -3,6 +3,7 @@ package com.example.aistim.data.data.repository
 import com.example.aistim.data.data.network.API
 import com.example.aistim.data.model.Categories
 import com.example.aistim.data.model.CategoriesByID
+import com.example.aistim.data.model.Product
 import com.example.aistim.data.model.Products
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -28,4 +29,8 @@ class ItemsRepo @Inject constructor(
             return@withContext api.getCategoriesListByIdPagePerPage(categoryCode)
         }
 
+    suspend fun loadProductById(productID: Int): Product =
+        withContext(Dispatchers.IO) {
+            return@withContext api.getProductById(productID)
+        }
 }

@@ -2,6 +2,7 @@ package com.example.aistim.data.data.network
 
 import com.example.aistim.data.model.Categories
 import com.example.aistim.data.model.CategoriesByID
+import com.example.aistim.data.model.Product
 import com.example.aistim.data.model.Products
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,7 +23,7 @@ interface API {
     suspend fun getCategoriesListByIdPagePerPage(@Path("category_id") categoryId: Int): Products
 
     @GET("catalog/products/{product_id}")
-    suspend fun getGoodsById(@Path("product_id") categoryId: Int)
+    suspend fun getProductById(@Path("product_id") productID: Int): Product
 
     @GET("catalog/products/search" + "?page=1&per_page=500")
     suspend fun getSearchList(@Query("query") subject: String)

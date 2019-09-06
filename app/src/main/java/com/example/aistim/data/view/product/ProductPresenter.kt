@@ -10,8 +10,8 @@ import javax.inject.Inject
 class ProductPresenter @Inject constructor(private val itemsRepo: ItemsRepo) :
     BasePresenter<IProductView>() {
 
-    fun getCategoriesListByIdPagePerPage(categoryCode: Int) = launch {
-        val response = itemsRepo.loadCategoriesListByIdPagePerPage(categoryCode)
-        viewState.handleProducts(response)
+    fun getProductById(productID: Int) = launch {
+        val response = itemsRepo.loadProductById(productID)
+        viewState.handleProduct(response)
     }
 }
